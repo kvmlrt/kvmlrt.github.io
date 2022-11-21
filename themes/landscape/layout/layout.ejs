@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html<% if(config.language){ %> lang="<%= config.language %>" <% } %>>
 <%- partial('_partial/head') %>
-
 <body>
-	<div class="main-con">
-
-        <%- partial('_partial/nav') %>
-        <%- partial('_partial/top',{}, {cache: true}) %>
-
-        <%- body %>
-    
-        <%- partial('_partial/footer',{}, {cache: true}) %>
-        <%- partial('_partial/extend',{}, {cache: true}) %>
-	</div>
-
-	<%- js('js/org/jquery.min.js') %>
-    <%- js('js/extend.js') %>
+  <div id="container">
+    <div id="wrap">
+      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <div class="outer">
+        <section id="main"><%- body %></section>
+        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
+          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+        <% } %>
+      </div>
+      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    </div>
+    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+    <%- partial('_partial/after-footer') %>
+  </div>
 </body>
 </html>

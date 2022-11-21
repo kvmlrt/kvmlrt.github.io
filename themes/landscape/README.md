@@ -1,43 +1,112 @@
-预览地址：[https://iengu.github.io](https://iengu.github.io)   
+# Landscape
 
-### 主题介绍
-一个基于hexo系统个人博客主题，全站自适应双栏布局，深色色块板块区分，风格简单干净，整体现代感较强，适合科技、技术、文字类博客使用。本主题内ICON图标使用第三方图标库 [font-awesome](https://fontawesome.com/)。
+A brand new default theme for [Hexo].
 
-### 使用指南
-* 克隆项目到HEXO博客根目录themes文件夹下
-```
-git clone --depth=1 https://github.com/iengu/hexo-theme-mokusei.git themes/mokusei
-```
-* 更改博客配置文件_config.yml, theme选项值设为mokusei
-```
-_config.yml
+- [Preview](http://hexo.io/hexo-theme-landscape/)
 
-- theme: other themes
-+ theme: mokusei
-```
-* 关于代码高亮  (更改博客配置文件_config.yml为以下推荐配置)
-```
-_config.yml
+## Installation
 
-highlight:
-  enable: true
-  line_number: false
-  auto_detect: false
-  tab_replace: ''
-  wrap: false
-  hljs: true
-prismjs:
-  enable: false
-  preprocess: true
-  line_number: true
-  tab_replace: ''
-```
-* 主题内详细配置请见：[wiki](https://github.com/iengu/hexo-theme-mokusei/wiki/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6_config.yml)
-* 更新主题
-```
-cd themes/mokusei
-git pull origin master
+### Install
+
+``` bash
+$ git clone https://github.com/hexojs/hexo-theme-landscape.git themes/landscape
 ```
 
+**Landscape requires Hexo 2.4 and above.** If you would like to enable the RSS, the [hexo-generate-feed] plugin is also required.
 
+### Enable
 
+Modify `theme` setting in `_config.yml` to `landscape`.
+
+### Update
+
+``` bash
+cd themes/landscape
+git pull
+```
+
+## Configuration
+
+``` yml
+# Header
+menu:
+  Home: /
+  Archives: /archives
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archives
+- recent_posts
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
+twitter:
+google_plus:
+```
+
+- **menu** - Navigation menu
+- **rss** - RSS link
+- **excerpt_link** - "Read More" link at the bottom of excerpted articles. `false` to hide the link.
+- **fancybox** - Enable [Fancybox]
+- **sidebar** - Sidebar style. You can choose `left`, `right`, `bottom` or `false`.
+- **widgets** - Widgets displaying in sidebar
+- **google_analytics** - Google Analytics ID
+- **favicon** - Favicon path
+- **twitter** - Twiiter ID
+- **google_plus** - Google+ ID
+
+## Features
+
+### Fancybox
+
+Landscape uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
+
+```
+![img caption](img url)
+
+{% fancybox img_url [img_thumbnail] [img_caption] %}
+```
+
+### Sidebar
+
+You can put your sidebar in left side, right side or bottom of your site by editing `sidebar` setting.
+
+Landscape provides 5 built-in widgets:
+
+- category
+- tag
+- tagcloud
+- archives
+- recent_posts
+
+All of them are enabled by default. You can edit them in `widget` setting.
+
+## Development
+
+### Requirements
+
+- [Grunt] 0.4+
+- Hexo 2.4+
+
+### Grunt tasks
+
+- **default** - Download [Fancybox] and [Font Awesome].
+- **fontawesome** - Only download [Font Awesome].
+- **fancybox** - Only download [Fancybox].
+- **clean** - Clean temporarily files and downloaded files.
+
+[Hexo]: https://hexo.io/
+[Fancybox]: http://fancyapps.com/fancybox/
+[Font Awesome]: http://fontawesome.io/
+[Grunt]: http://gruntjs.com/
+[hexo-generate-feed]: https://github.com/hexojs/hexo-generator-feed
